@@ -1,44 +1,24 @@
-const products = [
-  {
-    brand: "Rainy Days",
-    name: "Dural pro",
-    model: "unisex",
-    price: 79,
-    image: "../images/about-image.jpg",
-    color: ["red", "blue", "white", "black"],
-    size: ["small", "medium", "large"],
-    type: ["hiking, sport"],
-  },
-  {
-    brand: "Rainy Days",
-    name: "Sport plus",
-    model: "unisex",
-    price: 79,
-    image: "../images/about-image.jpg",
-    color: ["green", "blue", "white", "black"],
-    size: ["small", "medium", "large"],
-    type: ["hiking, sport"],
-  },
-  {
-    brand: "Rainy Days",
-    name: "monday mood",
-    model: "men",
-    price: 59,
-    image: "../images/about-image.jpg",
-    color: ["yellow", "white", "black"],
-    size: ["small", "medium", "large"],
-    type: ["casual"],
-  },
-  {
-    brand: "Rainy days",
-    name: "happy friday",
-    model: "women",
-    price: 59,
-    image: "../images/about-image.jpg",
-    color: ["yellow", "white", "black"],
-    size: ["small", "medium", "large"],
-    type: ["casual"],
-  },
-];
+import { products } from "./components/jacketsArray.js";
 
-console.log(products);
+const productContainer = document.querySelector(".product-list");
+
+products.forEach((product) => {
+  console.log(product);
+
+  productContainer.innerHTML += ` 
+  <div>
+  <a href="/html/details.html?id=${product.id}">
+    <div class="product-wrapper">
+      <div class="image-container">
+        <img src="${product.image}" />
+      </div>
+      <div class="product-text">
+        <h2>${product.brand}</h2>
+        <h3>${product.name}</h3>
+        <p>${product.model}</p>
+        <p class="price-tag">$${product.price}</p>
+      </div>
+    </div>
+  </a>
+  </div>`;
+});

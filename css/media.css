@@ -20,10 +20,6 @@
 
   /*products page*/
 
-  .product-list {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
   .store-heading,
   .store-heading__img-new-arrivals,
   .store-heading__img-outlet,
@@ -325,9 +321,8 @@
   }
 
   .store-products {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto;
+    display: flex;
+    flex-direction: column;
   }
 
   .product-filters {
@@ -343,7 +338,9 @@
   }
 
   .product-list {
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
   }
 
   /*Checkout 800*/
