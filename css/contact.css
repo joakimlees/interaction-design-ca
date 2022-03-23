@@ -1,0 +1,63 @@
+/*contact page*/
+
+.contact-header {
+  display: flex;
+  background-color: #1c2026;
+  width: 100%;
+  justify-content: center;
+  margin: 5px 0px;
+}
+
+.contact-header img {
+  height: 100px;
+}
+
+.main-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 0px 20px;
+  max-width: 500px;
+}
+
+.main-contact h1 {
+  font-size: 2.5rem;
+}
+
+.main-contact p {
+  margin: 2px 0px;
+  color: #1c2026;
+  font-size: 1rem;
+}
+
+.main-contact a {
+  font-size: 1rem;
+  color: #1c2026;
+  font-weight: bold;
+  font-style: italic;
+  margin: 2px 0px;
+}
+
+.contact-page__links {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.email {
+  max-width: 200px;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+}
+
+.error-class {
+  background-color: lightcoral;
+}
