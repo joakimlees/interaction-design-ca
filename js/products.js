@@ -1,4 +1,4 @@
-import { products } from "./components/jacketsArray.js";
+import { products } from "./jacketsArray.js";
 
 const productContainer = document.querySelector(".product-list");
 

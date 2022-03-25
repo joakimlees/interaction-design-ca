@@ -1,5 +1,5 @@
-import { products } from "./components/jacketsArray.js";
-import { getProduct } from "./components/getProducts.js";
+import { products } from "./jacketsArray.js";
+import { getProduct } from "./getProducts.js";
 
 const detailsContainer = document.querySelector(".main-golden-age");
 
@@ -39,7 +39,7 @@ detailsContainer.innerHTML = `
       <option value="${jacket.size[1]}">${jacket.size[1]}</option>
       <option value="${jacket.size[2]}">${jacket.size[2]}</option>
     </select>
-    <button class="add-cart-btn" data-brand="${jacket.brand}" data-name="${jacket.name}" data-price="${jacket.price}" data-color="${jacket.color[0]}" data-size="${jacket.size[0]}">add to local storage</button>
+    <button class="add-cart-btn" data-image="${jacket.image}" data-brand="${jacket.brand}" data-name="${jacket.name}" data-price="${jacket.price}" data-color="${jacket.color[0]}" data-size="${jacket.size[0]}">add to local storage</button>
     </form>
   </div>
 </div>
@@ -76,9 +76,10 @@ function orderDetails(event) {
   const brand = this.dataset.brand;
   const name = this.dataset.name;
   const price = this.dataset.price;
+  const image = this.dataset.image;
 
   const currentProd = getProduct();
-  const storedProdDetails = { brand: brand, name: name, size: size, color: color, price: price };
+  const storedProdDetails = { brand: brand, name: name, size: size, color: color, price: price, image: image };
 
   currentProd.push(storedProdDetails);
 
