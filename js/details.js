@@ -1,4 +1,5 @@
 import { products } from "./components/jacketsArray.js";
+import { getProduct } from "./components/getProducts.js";
 
 const detailsContainer = document.querySelector(".main-golden-age");
 
@@ -24,7 +25,7 @@ detailsContainer.innerHTML = `
     <h3>${jacket.name}</h3>
     <p>${jacket.type}<p>
     <p>${jacket.model}</p>
-    <p class="price-tag">$${jacket.price}</p>
+    <p class="price-tag">${jacket.price}</p>
     <form>
     <label for=${jacket.color[0]}>${jacket.color[0]}<label>
     <input type="radio" id="${jacket.color[0]}" value="${jacket.color[0]}" name="color" checked="checked">
@@ -38,7 +39,7 @@ detailsContainer.innerHTML = `
       <option value="${jacket.size[1]}">${jacket.size[1]}</option>
       <option value="${jacket.size[2]}">${jacket.size[2]}</option>
     </select>
-    <button class="add-cart-btn" data-color="${jacket.color[0]}" data-size="${jacket.size[0]}">add to local storage</button>
+    <button class="add-cart-btn" data-brand="${jacket.brand}" data-name="${jacket.name}" data-price="${jacket.price}" data-color="${jacket.color[0]}" data-size="${jacket.size[0]}">add to local storage</button>
     </form>
   </div>
 </div>
@@ -72,22 +73,16 @@ function orderDetails(event) {
 
   const color = this.dataset.color;
   const size = this.dataset.size;
+  const brand = this.dataset.brand;
+  const name = this.dataset.name;
+  const price = this.dataset.price;
 
   const currentProd = getProduct();
-  const storedProdDetails = { size: size, color: color };
+  const storedProdDetails = { brand: brand, name: name, size: size, color: color, price: price };
 
   currentProd.push(storedProdDetails);
 
   saveProducts(currentProd);
-}
-
-function getProduct() {
-  const storedProducts = localStorage.getItem("products");
-
-  if (!storedProducts) {
-    return [];
-  }
-  return JSON.parse(storedProducts);
 }
 
 function saveProducts(storedProducts) {
