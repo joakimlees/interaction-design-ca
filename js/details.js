@@ -1,5 +1,6 @@
 import { products } from "./jacketsArray.js";
 import { getProduct } from "./getProducts.js";
+import { changeCartCount } from "./counter.js";
 
 const detailsContainer = document.querySelector(".main-golden-age");
 
@@ -67,6 +68,7 @@ function onSizeSelect(event) {
 }
 
 addCartButton.addEventListener("click", orderDetails);
+addCartButton.addEventListener("click", changeCartCount);
 
 function orderDetails(event) {
   event.preventDefault();
