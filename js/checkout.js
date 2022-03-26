@@ -1,4 +1,4 @@
-import { getProduct } from "./getProducts.js";
+import { getProduct, getCustomer } from "./getProducts.js";
 
 const prodDetails = getProduct();
 
@@ -23,7 +23,7 @@ prodDetails.forEach((product) => {
 
 checkoutInfoContainer.innerHTML =
   checkoutInfoContainer.innerHTML +
-  `<p>Total Price: ${totalPrice},-
+  `<p>Total Price: ${totalPrice},-</p>
                                   </p><button class="to-checkout-button">Continue to checkout</button> `;
 
 //make cart html page
@@ -91,6 +91,7 @@ function makeCheckoutPage(event) {
   if (document.querySelector(".to-payment-button")) {
     const toPayment = document.querySelector(".to-payment-button");
     toPayment.addEventListener("click", storeInput);
+    toPayment.addEventListener("click", makePaymentHtml);
   }
 }
 
@@ -111,4 +112,39 @@ function storeInput(event) {
 }
 
 //function which makes payment html page
-function makePaymentHtml() {}
+function makePaymentHtml(product) {
+  checkoutInfoContainer.innerHTML = "";
+
+  const customerDetails = getCustomer();
+
+  prodDetails.forEach((product) => {
+    checkoutInfoContainer.innerHTML += `
+    <section>
+      <img src="${product.image}" />
+      <h2>${product.brand}</h2>
+      <h3>${product.brand}</h3>
+      <p>${product.size}</p>
+      <p>${product.price}</p>
+    </section>`;
+  });
+
+  checkoutInfoContainer.innerHTML =
+    "<h1>Summary</h1>" +
+    checkoutInfoContainer.innerHTML +
+    `<p>Total Price: ${totalPrice},-</p>` +
+    `
+    <section>
+      <p>Your Name: ${customerDetails.name}
+      <p>Email address: ${customerDetails.email}
+      <p>Phone number: ${customerDetails.phone}
+      <p>Delivery address: ${customerDetails.address}
+    </section>
+  
+  ` +
+    "<section><button class='backB-checkout'>Back button</button><button type='submit' class='submit-order'>Complete order</button></section>";
+
+  if (document.querySelector(".backB-checkout")) {
+    const backCheckoutButton = document.querySelector(".backB-checkout");
+    backCheckoutButton.addEventListener("click", makeCheckoutPage);
+  }
+}

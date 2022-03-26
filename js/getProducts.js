@@ -6,3 +6,12 @@ export function getProduct() {
   }
   return JSON.parse(storedProducts);
 }
+
+export function getCustomer() {
+  const storedCustomer = localStorage.getItem("customerInfo");
+
+  if (!storedCustomer) {
+    return [];
+  }
+  return JSON.parse(storedCustomer);
+}
