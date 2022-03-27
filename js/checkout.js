@@ -175,31 +175,53 @@ function makePaymentHtml(product) {
 
   prodDetails.forEach((product) => {
     checkoutInfoContainer.innerHTML += `
-    <section>
-      <img src="${product.image}" />
-      <h2>${product.brand}</h2>
-      <h3>${product.brand}</h3>
-      <p>${product.size}</p>
-      <p>${product.price}</p>
-    </section>`;
+    <div class="each-product-wrapper-cart">
+                                        <div class="cart-image-wrapper">
+                                          <img src="${product.image}" />
+                                        </div>
+                                        <div class="cart-prod-text">
+                                          <h2>${product.brand}</h2>
+                                          <h3>${product.name}</h3>
+                                          <p><b>Color:</b> ${product.color}</p>
+                                          <p><b>Size:</b> ${product.size}</p>
+                                          <p><b>Price:</b> $${product.price}</p>
+                                        </div>
+                                      </div>`;
   });
 
   checkoutInfoContainer.innerHTML =
-    "<h1>Summary</h1>" +
-    checkoutInfoContainer.innerHTML +
-    `<p>Total Price: ${totalPrice},-</p>` +
+    `<div class="product-wrapper-cart"><h2>Your order</h2>${checkoutInfoContainer.innerHTML}</div>` +
     `
-    <section>
-      <p>Your Name: ${customerDetails.name}
-      <p>Email address: ${customerDetails.email}
-      <p>Phone number: ${customerDetails.phone}
-      <p>Delivery address: ${customerDetails.address}
-    </section>
-  
-  ` +
-    `<section><button class='backB-checkout'>Back button</button>
-    
-    <button type='button' class='complete-order'>Complete order</button></section>`;
+    <section class="payment-container">
+      <h2>Delivery information</h2>
+      <section class="payment-text-wrapper">
+        <p><b>Full name:</b> ${customerDetails.name}</p>
+        <p><b>Email address:</b> ${customerDetails.email}</p>
+        <p><b>Phone number:</b> ${customerDetails.phone}</p>
+        <p><b>Delivery address:</b> ${customerDetails.address}</p>
+        <p><b>Product quantity:</b> ${prodDetails.length}</p>
+        <p><b>Total Price:</b> ${totalPrice},-</p>
+      </section>
+      <section class="delivery-input-wrapper payment-input-wrapper">
+                                          <div class="delivery-input-sticky">
+                                            <fieldset class="delivery-fieldset">
+                                              <legend>Your payment information</legend>
+                                              <select class="card-select" name="size-select" id="size-select">
+                                                <option value="visa" selected="selected">Visa</option>
+                                                <option value="mastercard">Mastercard</option>
+                                              </select>
+                                              <div>
+                                                <label for="card-number">Card number:</label>
+                                                <input type="tel" id="card-number" placeholder="Enter credit card number (required)">
+                                              </div>
+                                            </fieldset>
+                                            <div class="delivery-info-button-wrapper">
+                                              <button type='button' class='complete-order'>complete order</button>
+                                              <button class='backB-checkout'>Back button</button>
+                                            </div>
+                                          </div>  
+      </section>
+    </section>`;
 
   if (document.querySelector(".backB-checkout")) {
     const backCheckoutButton = document.querySelector(".backB-checkout");
@@ -213,8 +235,16 @@ function makePaymentHtml(product) {
 }
 
 function orderSuccessHtml() {
+  heading.innerHTML = "";
   checkoutInfoContainer.innerHTML = "";
 
-  checkoutInfoContainer.innerHTML = `<h1>Your order was successfully submitted</h1>
-                                      <button>Back to Rainy days - Home</button>`;
+  heading.innerHTML = "Order successfully completed";
+
+  checkoutInfoContainer.innerHTML = `<section class="success-container">
+                                      <h2>Your order is now send to us</h2>
+                                      <p>Thanks for your order. A confirmation email with details on your order has been send to you.</p>
+                                      <br>
+                                      <p>If you have any questions feel free to <a href="/html/contact.html">contact us here</a></p>
+                                      <a class="success-back-button" href="../index.html">Back to Rainy days - Home</a>
+                                    </section>`;
 }

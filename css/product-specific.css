@@ -66,13 +66,16 @@
 
 .product-wrapper-details {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin-top: 50px;
+  margin-bottom: 50px;
   gap: 30px;
+  align-items: center;
 }
 
 .image-container-details {
-  width: 500px;
+  width: 300px;
 }
 
 .image-details {
@@ -94,7 +97,13 @@
 }
 
 .product-text {
-  width: 500px;
+  width: 300px;
+  order: 2;
+}
+
+.more-details-wrapper {
+  max-width: 600px;
+  margin: 20px 50px;
 }
 
 .to-cart-cta,
@@ -149,9 +158,4 @@
 .size-select {
   background-color: #fff;
   font-family: "open sans", Verdana, Tahoma, "Trebuchet MS", Arial, Helvetica;
-}
-
-.more-details-wrapper {
-  margin: 50px 0px;
-  width: 1030px;
 }

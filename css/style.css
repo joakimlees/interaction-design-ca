@@ -304,3 +304,9 @@ footer ul {
 footer li {
   margin-right: 30px;
 }
+
+/*Ny update*/
+
+.top-logo-ny {
+  grid-column: 2/3;
+}
