@@ -61,7 +61,7 @@ function validateInput(event) {
   }
 
   if (emailCheck) {
-    successMessage.innerHTML = "Your form was submitted";
+    successMessage.innerHTML = "Thanks for your message! We will get back to you shortly";
     form.reset();
   }
 }

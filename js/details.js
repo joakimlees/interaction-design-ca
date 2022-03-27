@@ -48,7 +48,7 @@ detailsContainer.innerHTML = `
       </div>
     </div>
     <div class="details-button-wrapper">
-      <button class="add-cart-btn to-cart-cta" data-image="${jacket.image}" data-brand="${jacket.brand}" data-name="${jacket.name}" data-price="${jacket.price}" data-color="${jacket.color[0]}" data-size="${jacket.size[0]}">add to local storage</button>
+      <button class="add-cart-btn to-cart-cta" data-image="${jacket.image}" data-brand="${jacket.brand}" data-name="${jacket.name}" data-price="${jacket.price}" data-color="${jacket.color[0]}" data-size="${jacket.size[0]}">Add to shopping cart</button>
       <a class="view-cart-cta" href="/html/newCheckout.html">View shopping cart</a>
     </div>
   </div>

@@ -162,9 +162,10 @@
 /*New update*/
 
 .singel-product-wrapper {
+  background-color: #f7f7f7;
   border-style: solid;
   border-width: 1px;
-  border-color: #0a3641;
+  border-color: #1c2026;
 }
 
 .product-list {

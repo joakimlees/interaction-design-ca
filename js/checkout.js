@@ -38,7 +38,7 @@ checkoutInfoContainer.innerHTML =
       <div class="price-button-sticky">
         <p><b>Quantity:</b> ${prodDetails.length} - products</p>
         <p><b>Total Price:</b> $${totalPrice},-</p>
-        </p><button class="to-checkout-button">Continue to checkout</button>
+        </p><button class="to-checkout-button">Begin checkout</button>
       </div>
     </div> `;
 
@@ -71,7 +71,7 @@ function makeCartHtml(event) {
         <div class="price-button-sticky">
           <p><b>Quantity:</b> ${prodDetails.length} - products</p>
           <p><b>Total Price:</b> $${totalPrice},-</p>
-          </p><button class="to-checkout-button">Continue to checkout</button>
+          </p><button class="to-checkout-button">Begin Checkout</button>
         </div>
       </div> `;
 
@@ -128,8 +128,8 @@ function makeCheckoutPage(event) {
                                               </div>
                                             </fieldset>
                                             <div class="delivery-info-button-wrapper">
-                                              <button type='button' class='to-payment-button'>To payment</button>
-                                              <button class='backB-checkout'>Back button</button>
+                                              <button type='button' class='to-payment-button'>Confirm & continue</button>
+                                              <button class='backB-checkout'>Back to previous</button>
                                             </div>
                                           </div>  
                                         </section>
@@ -216,8 +216,8 @@ function makePaymentHtml(product) {
                                               </div>
                                             </fieldset>
                                             <div class="delivery-info-button-wrapper">
-                                              <button type='button' class='complete-order'>complete order</button>
-                                              <button class='backB-checkout'>Back button</button>
+                                              <button type='button' class='complete-order'>Confirm & complete order</button>
+                                              <button class='backB-checkout'>Back to previous</button>
                                             </div>
                                           </div>  
       </section>

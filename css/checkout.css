@@ -321,6 +321,15 @@
   border-width: 1px;
 }
 
+.complete-order {
+  border-style: solid;
+  border-radius: 1px;
+  border-color: #1c2026;
+  color: #fff;
+  background-color: #0a3641;
+  border-radius: 5px;
+}
+
 /*delivery info*/
 
 .delivery-input-wrapper {
