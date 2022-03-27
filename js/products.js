@@ -6,7 +6,7 @@ products.forEach((product) => {
   console.log(product);
 
   productContainer.innerHTML += ` 
-  <div>
+  <div class="singel-product-wrapper">
   <a href="/html/details.html?id=${product.id}">
     <div class="product-wrapper">
       <div class="image-container">

@@ -129,9 +129,8 @@
   /*product specific 650*/
 
   .main-golden-age {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-top: 10px;
+    display: flex;
+    align-items: center;
   }
 
   .golden-age__image {
@@ -339,8 +338,10 @@
 
   .product-list {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
+    margin-bottom: 30px;
   }
 
   /*Checkout 800*/
@@ -351,7 +352,7 @@
   }
 
   .main-checkout h1 {
-    margin-left: 50px;
+    margin: 50px auto;
   }
 
   .h2-checkout__hidden {

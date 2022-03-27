@@ -75,7 +75,7 @@
 
 .store-products h1 {
   font-size: 2.5rem;
-  margin: 5px auto 20px 5px;
+  margin: 50px auto 50px;
 }
 
 .store-products h2 {
@@ -119,31 +119,30 @@
 
 .product-list img {
   width: 100%;
-  height: 400px;
+  height: 350px;
   object-fit: cover;
 }
 
 .product-wrapper {
   display: flex;
   flex-direction: column;
-  width: 500px;
+  width: 350px;
 }
 
 .product-text {
-  background-color: #0a3641;
-  color: #fff;
   padding: 2px;
 }
 
 .product-text h2,
 .product-text h3,
 .product-text p {
-  color: #fff;
+  color: #0a3641;
   margin: 2px;
 }
 
 .product-text h2 {
   font-size: 1.5rem;
+  font-family: "open sans", Verdana, Tahoma, "Trebuchet MS", Arial, Helvetica;
 }
 
 .product-text h3 {
@@ -155,5 +154,14 @@
 }
 
 .product-text .price-tag {
-  color: #75d998;
+  color: #0a3641;
+}
+
+/*New update*/
+
+.singel-product-wrapper {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #0a3641;
+  padding: 20px;
 }

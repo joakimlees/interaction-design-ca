@@ -6,6 +6,8 @@ const checkoutInfoContainer = document.querySelector(".checkout-info-container")
 
 let totalPrice = 0;
 
+const heading = document.querySelector(".checkout-h1");
+
 prodDetails.forEach((product) => {
   totalPrice += parseInt(product.price);
 
@@ -14,35 +16,64 @@ prodDetails.forEach((product) => {
 
 prodDetails.forEach((product) => {
   checkoutInfoContainer.innerHTML += ` 
-                                        <img src="${product.image}" />
-                                        <h2>${product.brand}</h2>
-                                        <h3>${product.brand}</h3>
-                                        <p>${product.size}</p>
-                                        <p>${product.price}</p>`;
+                                      <div class="each-product-wrapper-cart">
+                                        <div class="cart-image-wrapper">
+                                          <img src="${product.image}" />
+                                        </div>
+                                        <div class="cart-prod-text">
+                                          <h2>${product.brand}</h2>
+                                          <h3>${product.name}</h3>
+                                          <p><b>Color:</b> ${product.color}</p>
+                                          <p><b>Size:</b> ${product.size}</p>
+                                          <p><b>Price:</b> $${product.price}</p>
+                                        </div>
+                                      </div>`;
 });
 
+heading.innerHTML = "Your shopping cart";
+
 checkoutInfoContainer.innerHTML =
-  checkoutInfoContainer.innerHTML +
-  `<p>Total Price: ${totalPrice},-</p>
-                                  </p><button class="to-checkout-button">Continue to checkout</button> `;
+  `<div class="product-wrapper-cart">${checkoutInfoContainer.innerHTML}</div>` +
+  ` <div class="price-button-wrapper">
+      <div class="price-button-sticky">
+        <p><b>Quantity:</b> ${prodDetails.length} - products</p>
+        <p><b>Total Price:</b> $${totalPrice},-</p>
+        </p><button class="to-checkout-button">Continue to checkout</button>
+      </div>
+    </div> `;
 
 //make cart html page
 function makeCartHtml(event) {
+  heading.innerHTML = "";
   checkoutInfoContainer.innerHTML = "";
+
+  heading.innerHTML = "Your shopping cart";
 
   prodDetails.forEach((product) => {
     checkoutInfoContainer.innerHTML += ` 
-                                        <img src="${product.image}" />
-                                        <h2>${product.brand}</h2>
-                                        <h3>${product.brand}</h3>
-                                        <p>${product.size}</p>
-                                        <p>${product.price}</p>`;
+                                        <div class="each-product-wrapper-cart">
+                                          <div class="cart-image-wrapper">
+                                            <img src="${product.image}" />
+                                          </div>
+                                          <div class="cart-prod-text">
+                                            <h2>${product.brand}</h2>
+                                            <h3>${product.name}</h3>
+                                            <p><b>Color:</b> ${product.color}</p>
+                                            <p><b>Size:</b> ${product.size}</p>
+                                            <p><b>Price:</b> $${product.price}</p>
+                                          </div>
+                                        </div>`;
   });
 
   checkoutInfoContainer.innerHTML =
-    checkoutInfoContainer.innerHTML +
-    `<p>Total Price: ${totalPrice},-
-                                    </p><button class='to-checkout-button'>Continue to checkout</button> `;
+    `<div class="product-wrapper-cart">${checkoutInfoContainer.innerHTML}</div>` +
+    ` <div class="price-button-wrapper">
+        <div class="price-button-sticky">
+          <p><b>Quantity:</b> ${prodDetails.length} - products</p>
+          <p><b>Total Price:</b> $${totalPrice},-</p>
+          </p><button class="to-checkout-button">Continue to checkout</button>
+        </div>
+      </div> `;
 
   if (document.querySelector(".to-checkout-button")) {
     const toCheckoutButton = document.querySelector(".to-checkout-button");
@@ -52,35 +83,57 @@ function makeCartHtml(event) {
 
 // make checkout page HTML
 function makeCheckoutPage(event) {
+  heading.innerHTML = "";
   checkoutInfoContainer.innerHTML = "";
 
+  heading.innerHTML = "Delivery information";
+
   prodDetails.forEach((product) => {
-    checkoutInfoContainer.innerHTML += `
-    <section>
-      <img src="${product.image}" />
-      <h2>${product.brand}</h2>
-      <h3>${product.brand}</h3>
-      <p>${product.size}</p>
-      <p>${product.price}</p>
-    </section>`;
+    checkoutInfoContainer.innerHTML += ` 
+                                        <div class="each-product-wrapper-cart">
+                                          <div class="cart-image-wrapper">
+                                            <img src="${product.image}" />
+                                          </div>
+                                          <div class="cart-prod-text">
+                                            <h2>${product.brand}</h2>
+                                            <h3>${product.name}</h3>
+                                            <p><b>Color:</b> ${product.color}</p>
+                                            <p><b>Size:</b> ${product.size}</p>
+                                            <p><b>Price:</b> $${product.price}</p>
+                                          </div>
+                                        </div>`;
   });
 
   checkoutInfoContainer.innerHTML =
-    checkoutInfoContainer.innerHTML +
-    `<form>
-                                            <fieldset>
+    `<div class="product-wrapper-cart">${checkoutInfoContainer.innerHTML}</div>` +
+    `<section class="delivery-input-wrapper">
+                                          <div class="delivery-input-sticky">
+                                            <fieldset class="delivery-fieldset">
                                               <legend>Delivery information</legend>
-                                              <label for="full-name">Full Name<label>
-                                              <input type="text" id="full-name" placeholder="Enter full name">
-                                              <label for="email">email-address</label>
-                                              <input type="email" id="email" placeholder="enter e-mail address">
-                                              <label for="phone-number">Phone number:</label>
-                                              <input type="tel" id="phone-number">
-                                              <label for="Delivery address">Delivery Address</label>
-                                              <input type="text" id="delivery-address" placeholder="Enter delivery address (required)">
+                                              <div>
+                                                <label for="full-name">Full Name<label>
+                                                <input type="text" id="full-name" placeholder="Enter full name">
+                                              </div>
+                                              <div>
+                                                <label for="email">email-address</label>
+                                                <input type="email" id="email" placeholder="enter e-mail address">
+                                              </div>
+                                              <div>
+                                                <label for="phone-number">Phone number:</label>
+                                                <input type="tel" id="phone-number">
+                                              </div>
+                                              <div>
+                                                <label for="Delivery address">Delivery Address</label>
+                                                <input type="text" id="delivery-address" placeholder="Enter delivery address (required)">
+                                              </div>
                                             </fieldset>
-                                          </form> ` +
-    "<section><button class='backB-checkout'>Back button</button><button class='to-payment-button'>To payment</button></section>";
+                                            <div class="delivery-info-button-wrapper">
+                                              <button type='button' class='to-payment-button'>To payment</button>
+                                              <button class='backB-checkout'>Back button</button>
+                                            </div>
+                                          </div>  
+                                        </section>
+                                           `;
 
   //making var and event to buttons forward and backwards.
   if (document.querySelector(".backB-checkout")) {
@@ -113,7 +166,10 @@ function storeInput(event) {
 
 //function which makes payment html page
 function makePaymentHtml(product) {
+  heading.innerHTML = "";
   checkoutInfoContainer.innerHTML = "";
+
+  heading.innerHTML = "Payment information";
 
   const customerDetails = getCustomer();
 
@@ -141,10 +197,24 @@ function makePaymentHtml(product) {
     </section>
   
   ` +
-    "<section><button class='backB-checkout'>Back button</button><button type='submit' class='submit-order'>Complete order</button></section>";
+    `<section><button class='backB-checkout'>Back button</button>
+    
+    <button type='button' class='complete-order'>Complete order</button></section>`;
 
   if (document.querySelector(".backB-checkout")) {
     const backCheckoutButton = document.querySelector(".backB-checkout");
     backCheckoutButton.addEventListener("click", makeCheckoutPage);
   }
+  if (document.querySelector(".complete-order")) {
+    const completeOrder = document.querySelector(".complete-order");
+    completeOrder.addEventListener("click", orderSuccessHtml);
+    completeOrder.addEventListener("click", localStorage.clear());
+  }
+}
+
+function orderSuccessHtml() {
+  checkoutInfoContainer.innerHTML = "";
+
+  checkoutInfoContainer.innerHTML = `<h1>Your order was successfully submitted</h1>
+                                      <button>Back to Rainy days - Home</button>`;
 }

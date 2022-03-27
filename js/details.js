@@ -16,36 +16,51 @@ const jacket = findId[0];
 
 detailsContainer.innerHTML = `
 
-<div>
-<div class="product-wrapper">
-  <div class="image-container">
-    <img src="${jacket.image}" />
-  </div>
+<div class="product-wrapper-details">
   <div class="product-text">
-    <h2>${jacket.brand}</h2>
-    <h3>${jacket.name}</h3>
-    <p>${jacket.type}<p>
-    <p>${jacket.model}</p>
-    <p class="price-tag">${jacket.price}</p>
-    <form>
-    <label for=${jacket.color[0]}>${jacket.color[0]}<label>
-    <input type="radio" id="${jacket.color[0]}" value="${jacket.color[0]}" name="color" checked="checked">
-    <label for=${jacket.color[1]}>${jacket.color[1]}<label>
-    <input type="radio" id="${jacket.color[1]}" value="${jacket.color[1]}" name="color">
-    <label for=${jacket.color[2]}>${jacket.color[2]}<label>
-    <input type="radio" id="${jacket.color[2]}" value="${jacket.color[2]}" name="color">
-    <label for="size-select">Select size:</label>
-    <select name="size-select" id="size-select">
-      <option value="${jacket.size[0]}" selected="selected">${jacket.size[0]}</option>
-      <option value="${jacket.size[1]}">${jacket.size[1]}</option>
-      <option value="${jacket.size[2]}">${jacket.size[2]}</option>
-    </select>
-    <button class="add-cart-btn" data-image="${jacket.image}" data-brand="${jacket.brand}" data-name="${jacket.name}" data-price="${jacket.price}" data-color="${jacket.color[0]}" data-size="${jacket.size[0]}">add to local storage</button>
-    </form>
+    <div>
+      <h1>${jacket.brand}</h1>
+      <h2>${jacket.name}</h2>
+      <p>${jacket.type}<p>
+      <p>${jacket.model}</p>
+      <p class="price-tag"><b>Price:</b> $${jacket.price}</p>
+    </div>
+    <div class="input-details-wrapper" >
+      <div>
+        <input ${jacket.color[0]};" type="radio" id="${jacket.color[0]}" value="${jacket.color[0]}" name="color" checked="checked">
+        <label for=${jacket.color[0]}>${jacket.color[0]}<label>
+      </div>
+      <div>
+        <input type="radio" id="${jacket.color[1]}" value="${jacket.color[1]}" name="color">
+        <label for=${jacket.color[1]}>${jacket.color[1]}<label>
+      </div>
+      <div>
+        <input type="radio" id="${jacket.color[2]}" value="${jacket.color[2]}" name="color">
+        <label for=${jacket.color[2]}>${jacket.color[2]}<label>
+      </div>
+      <div>
+        <label for="size-select">Select size:</label>
+        <select class="size-select" name="size-select" id="size-select">
+          <option value="${jacket.size[0]}" selected="selected">${jacket.size[0]}</option>
+          <option value="${jacket.size[1]}">${jacket.size[1]}</option>
+          <option value="${jacket.size[2]}">${jacket.size[2]}</option>
+        </select>
+      </div>
+    </div>
+    <div class="details-button-wrapper">
+      <button class="add-cart-btn to-cart-cta" data-image="${jacket.image}" data-brand="${jacket.brand}" data-name="${jacket.name}" data-price="${jacket.price}" data-color="${jacket.color[0]}" data-size="${jacket.size[0]}">add to local storage</button>
+      <a class="view-cart-cta" href="/html/newCheckout.html">View shopping cart</a>
+    </div>
   </div>
+  <div class="image-container-details">
+  <img class="image-details" src="${jacket.image}" />
 </div>
-</a>
-</div>`;
+</div>
+<section class="more-details-wrapper">
+  <h3>${jacket.name}, more details:</h3>
+    <p>${jacket.details}</p>
+    <a class="back-to-jackets-cta" href="/html/store.html">See more jackets</a>
+</section>`;
 
 const addCartButton = document.querySelector(".add-cart-btn");
 
